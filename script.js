@@ -51,13 +51,20 @@ const startButton = document.getElementById('start-button');
 let firstTime = true;
 startButton.addEventListener('click', () => {
   if(firstTime) {
+    stopped = false;
     moveCar(0);
     firstTime = false;
   }
 });
 
+let stopped = false;
+const stopButton = document.getElementById('stop-button');
+stopButton.addEventListener('click', () => {
+    stopped = true;
+});
+
 function moveCar(position) {
-  if (position > 100) return;
+  if (position > 100 || stopped) return;
   car.style.right = position + '%';
   setTimeout(() => moveCar(position + 1), 200);
 }
