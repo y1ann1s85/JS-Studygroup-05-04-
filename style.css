@@ -1,3 +1,8 @@
-#car {
-position: absolute;
-}
+.cars {
+    position: absolute;
+    right: -10px;
+  }
+  
+  #car2 {
+    top: 200px;
+  }
