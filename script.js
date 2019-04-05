@@ -39,20 +39,49 @@
 //       moveCar(0);
 // });
 
+// const car = document.getElementById('car');
+// car.style.right = '1%';
+
+// // first step: display 1, 2, ... 100
+// // Second step: display 1%, 2%,..., 100%
+// // Last step: set the right position from 1%, ..., to 100%
+
+// const startButton = document.getElementById('start-button');
+
+// let firstTime = true;
+// startButton.addEventListener('click', () => {
+//   if(firstTime) {
+//     stopped = false;
+//     moveCar(0);
+//     firstTime = false;
+//   }
+// });
+
+// let stopped = false;
+// const stopButton = document.getElementById('stop-button');
+// stopButton.addEventListener('click', () => {
+//     stopped = true;
+// });
+
+// function moveCar(position) {
+//   if (position > 100 || stopped) return;
+//   car.style.right = position + '%';
+//   setTimeout(() => moveCar(position + 1), 200);
+// }
+
+//With Class Constructors
+
 const car = document.getElementById('car');
+const topPosition = '200px';
+const speed = 100;
 car.style.right = '1%';
-
-// first step: display 1, 2, ... 100
-// Second step: display 1%, 2%,..., 100%
-// Last step: set the right position from 1%, ..., to 100%
-
-const startButton = document.getElementById('start-button');
+car.style.top = topPosition;
 
 let firstTime = true;
+const startButton = document.getElementById('start-button');
 startButton.addEventListener('click', () => {
   if(firstTime) {
-    stopped = false;
-    moveCar(0);
+    carObject.moveCar();
     firstTime = false;
   }
 });
@@ -60,11 +89,24 @@ startButton.addEventListener('click', () => {
 let stopped = false;
 const stopButton = document.getElementById('stop-button');
 stopButton.addEventListener('click', () => {
-    stopped = true;
-});
+  stopped = true;
+})
 
-function moveCar(position) {
-  if (position > 100 || stopped) return;
-  car.style.right = position + '%';
-  setTimeout(() => moveCar(position + 1), 200);
-}
+class Car {
+  constructor(car, speed) {
+    this.position = 0;
+    this.speed = speed;
+    this.stopped = false;
+    this.car = car;
+  }
+
+  moveCar() {
+    if (this.stopped) return;
+    if (this.position > 100) return;
+    this.car.style.right = this.position + '%';
+    this.position++;
+    setTimeout(() => this.moveCar(), this.speed);
+  }
+};
+
+const carObject = new Car(car, 300);
