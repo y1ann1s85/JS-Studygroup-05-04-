@@ -1,87 +1,15 @@
-// const car = document.getElementById('car');
-// car.style.right = '100%';
+const car1 = document.getElementById('car1');
+const car2 = document.getElementById('car2');
 
-// first step: display 1, 2, ... 100
-// Second step: display 1%, 2%,..., 100%
-// Last step: set the right position from 1%, ..., to 100%
-
-
-// for(let i = 0; i <= 90; i++) {
-//   setTimeout(() => {
-//     car.style.right = i + '%';
-//   }, 200*i)
-// }
-
-// const car2 = document.getElementById('car2');
-// function moveCar(position) {
-//   if (position > 100) return;
-//   car2.style.right = position + '%';
-//   setTimeout(() => moveCar(position + 1), 200);
-// }
-// moveCar(0);
-
-// let myButton = document.getElementById("btn");
-
-// myButton.addEventListener("click", function () {
-//     // console.log("Clicked");
-//     for(let i = 0; i <= 90; i++) {
-//         setTimeout(() => {
-//           car.style.right = i + '%';
-//         }, 200*i)
-//       }
-      
-//       const car2 = document.getElementById('car2');
-//       function moveCar(position) {
-//         if (position > 100) return;
-//         car2.style.right = position + '%';
-//         setTimeout(() => moveCar(position + 1), 200);
-//       }
-//       moveCar(0);
-// });
-
-// const car = document.getElementById('car');
-// car.style.right = '1%';
-
-// // first step: display 1, 2, ... 100
-// // Second step: display 1%, 2%,..., 100%
-// // Last step: set the right position from 1%, ..., to 100%
-
-// const startButton = document.getElementById('start-button');
-
-// let firstTime = true;
-// startButton.addEventListener('click', () => {
-//   if(firstTime) {
-//     stopped = false;
-//     moveCar(0);
-//     firstTime = false;
-//   }
-// });
-
-// let stopped = false;
-// const stopButton = document.getElementById('stop-button');
-// stopButton.addEventListener('click', () => {
-//     stopped = true;
-// });
-
-// function moveCar(position) {
-//   if (position > 100 || stopped) return;
-//   car.style.right = position + '%';
-//   setTimeout(() => moveCar(position + 1), 200);
-// }
-
-//With Class Constructors
-
-const car = document.getElementById('car');
 const topPosition = '200px';
 const speed = 100;
-car.style.right = '1%';
-car.style.top = topPosition;
 
 let firstTime = true;
 const startButton = document.getElementById('start-button');
 startButton.addEventListener('click', () => {
   if(firstTime) {
-    carObject.moveCar();
+    carObject1.moveCar();
+    carObject2.moveCar();
     firstTime = false;
   }
 });
@@ -89,7 +17,28 @@ startButton.addEventListener('click', () => {
 let stopped = false;
 const stopButton = document.getElementById('stop-button');
 stopButton.addEventListener('click', () => {
-  stopped = true;
+  carObject1.stopCar();
+  carObject2.stopCar();
+})
+
+const speedUpCar1 = document.getElementById("gain-speed-car1");
+speedUpCar1.addEventListener('click', () => {
+  carObject1.gainSpeed();
+})
+
+const speedUpCar2 = document.getElementById("gain-speed-car2");
+speedUpCar2.addEventListener('click', () => {
+  carObject2.gainSpeed();
+})
+
+const speedDownCar1 = document.getElementById("reduce-speed-car1");
+speedDownCar1.addEventListener('click', () => {
+  carObject1.reduceSpeed();
+})
+
+const speedDownCar2 = document.getElementById("reduce-speed-car2");
+speedDownCar2.addEventListener('click', () => {
+  carObject2.reduceSpeed();
 })
 
 class Car {
@@ -100,6 +49,18 @@ class Car {
     this.car = car;
   }
 
+  gainSpeed() {
+    this.speed -= 20;
+  }
+
+  reduceSpeed() {
+    this.speed += 20;
+  }
+
+  stopCar() {
+    this.stopped = true;
+  }
+
   moveCar() {
     if (this.stopped) return;
     if (this.position > 100) return;
@@ -107,6 +68,8 @@ class Car {
     this.position++;
     setTimeout(() => this.moveCar(), this.speed);
   }
+
 };
 
-const carObject = new Car(car, 300);
+const carObject1 = new Car(car1, 300);
+const carObject2 = new Car(car2, 500);
