@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>title</title>
-    <link rel="stylesheet" href="style.css">
 
-  </head>
-  <body>
-    <div class='container'>
-      <button id='start-button'>Start</button>
-      <button id='stop-button'>Stop</button>
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class='container'>
+    <div>
+      <button id='start-button'>Start Race</button>
+      <button id='stop-button'>Stop Race</button>
+      <button id='gain-speed-car1'>Car 1 Speed +</button>
+      <button id='reduce-speed-car1'>Car 1 Speed -</button>
+      <button id='gain-speed-car2'>Car 2 Speed +</button>
+      <button id='reduce-speed-car2'>Car 2 Speed -</button>
     </div>
-    <img class='cars' id='car' src='images/car.jpg'
-      height="80px" />
-    <img class='cars' id='car2' src='images/car.jpg'
-      height="80px" />
-    <!-- page content -->
-    <script src="script.js"></script>
-  </body>
+    <div>
+      <img id="car1" class='cars' src='images/car.png' height="80px" />
+    </div>
+    <div>
+      <img id='car2' class='cars' src='images/car.png' height="80px" />
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
