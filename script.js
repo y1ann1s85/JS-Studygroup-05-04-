@@ -1,13 +1,10 @@
 const car1 = document.getElementById('car1');
 const car2 = document.getElementById('car2');
 
-const topPosition = '200px';
-const speed = 100;
-
 let firstTime = true;
 const startButton = document.getElementById('start-button');
 startButton.addEventListener('click', () => {
-  if(firstTime) {
+  if (firstTime) {
     carObject1.moveCar();
     carObject2.moveCar();
     firstTime = false;
@@ -19,6 +16,13 @@ const stopButton = document.getElementById('stop-button');
 stopButton.addEventListener('click', () => {
   carObject1.stopCar();
   carObject2.stopCar();
+  firstTime = true;
+})
+
+const restartBtn = document.getElementById('restart-button');
+restartBtn.addEventListener('click', () => {
+  carObject1.restartRace();
+  carObject2.restartRace();
 })
 
 const speedUpCar1 = document.getElementById("gain-speed-car1");
@@ -69,7 +73,15 @@ class Car {
     setTimeout(() => this.moveCar(), this.speed);
   }
 
+  restartRace() {
+    this.stopped = false;
+    if (this.position > 100) return;
+    this.car.style.right = this.position + '%';
+    this.position++;
+    setTimeout(() => this.moveCar(), this.speed);
+  }
+
 };
 
 const carObject1 = new Car(car1, 300);
-const carObject2 = new Car(car2, 500);
+const carObject2 = new Car(car2, 300);
