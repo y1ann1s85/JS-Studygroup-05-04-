@@ -71,6 +71,12 @@ body {
   color: white;
 }
 
+#restart-button {
+  border: transparent;
+  background-color: yellow;
+  color: black;
+}
+
 #start-button:active {
   background-color: white;
   color: green;
@@ -79,6 +85,11 @@ body {
 #stop-button:active {
   background-color: white;
   color: red;
+}
+
+#restart-button:active {
+  background-color: black;
+  color: yellow;
 }
 
 #gain-speed-car1:active {
