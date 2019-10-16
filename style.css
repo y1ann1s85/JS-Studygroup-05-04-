@@ -1,0 +1,113 @@
+* {
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: large;
+}
+
+body {
+  background-image: url('./images/back.jpg');
+}
+
+.cars {
+  position: absolute;
+  right: 0%;
+  padding: 5%;
+}
+  
+#car2 {
+  top: 45%;
+}
+
+#gain-speed-car1 {
+  position: absolute;
+  top: 4.5%;
+  right: 22.5%;
+  margin-bottom: 5%;
+  padding: 1%;
+  border: transparent;
+  background-color: green;
+  color: white;
+}
+
+#reduce-speed-car1 {
+  position: absolute;
+  top: 4.5%;
+  right: 10%;
+  padding: 1%;
+  border: transparent;
+  background-color: red;
+  color: white;
+}
+
+#gain-speed-car2 {
+  position: absolute;
+  bottom: 19%;
+  right: 22.5%;
+  padding: 1%;
+  border: transparent;
+  background-color: green;
+  color: white;
+}
+
+#reduce-speed-car2 {
+  position: absolute;
+  bottom: 19%;
+  right: 10%;
+  padding: 1%;
+  border: transparent;
+  background-color: red;
+  color: white;
+}
+
+#start-button {
+  border: transparent;
+  background-color: green;
+  color: white;
+}
+
+#stop-button {
+  border: transparent;
+  background-color: red;
+  color: white;
+}
+
+#restart-button {
+  border: transparent;
+  background-color: yellow;
+  color: black;
+}
+
+#start-button:active {
+  background-color: white;
+  color: green;
+}
+
+#stop-button:active {
+  background-color: white;
+  color: red;
+}
+
+#restart-button:active {
+  background-color: black;
+  color: yellow;
+}
+
+#gain-speed-car1:active {
+  background-color: white;
+  color: green;
+}
+
+#gain-speed-car2:active {
+  background-color: white;
+  color: green;
+}
+
+#reduce-speed-car1:active {
+  background-color: white;
+  color: red;
+}
+
+#reduce-speed-car2:active {
+  background-color: white;
+  color: red;
+}
